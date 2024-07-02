@@ -1,3 +1,23 @@
-PODFILE CHECKSUM: 6a45dd0b435ee5badb227bb58c4db912958dbc14
+PODS:
+  - MagicalRecord (2.4.0):
+    - MagicalRecord/Core (= 2.4.0)
+  - MagicalRecord/Core (2.4.0)
+
+DEPENDENCIES:
+  - MagicalRecord (from `https://github.com/magicalpanda/MagicalRecord`)
+
+EXTERNAL SOURCES:
+  MagicalRecord:
+    :git: https://github.com/magicalpanda/MagicalRecord
+
+CHECKOUT OPTIONS:
+  MagicalRecord:
+    :commit: 6031f608b79c1d6802007aaed6efd100e11f59ba
+    :git: https://github.com/magicalpanda/MagicalRecord
+
+SPEC CHECKSUMS:
+  MagicalRecord: 1f22a766156474d9f46a9b1e1ce59ca9e37830fc
+
+PODFILE CHECKSUM: be199bf67a3469a4ff5e837f1b2e5dbb3e1bf13c
 
 COCOAPODS: 1.15.2
