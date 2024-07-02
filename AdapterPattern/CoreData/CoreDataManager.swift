@@ -19,42 +19,65 @@ class CoreDataManager {
     }
     
     func getUsers() -> [User] {
-        let users = User.mr_findAll(in: NSManagedObjectContext.mr_default()) as! [User]
+        let context = NSManagedObjectContext.mr_default()
+        let users = User.mr_findAll(in: context) as! [User]
         return users
     }
     
-    func createUser(name: String, email: String) {
-        let context = NSManagedObjectContext.mr_context(withParent: .mr_rootSaving())
-        context.performAndWait {
-            let user = User.mr_createEntity(in: context)
-            user?.name = name
-            user?.email = email
-            user?.userId = email
-            user?.isActive = true
-            user?.product = nil
-        }
+    func createUser(
+        name: String,
+        email: String
+    ) {
+        let context = NSManagedObjectContext.mr_default()
+        let user = User.mr_findFirstOrCreate(
+            byAttribute: User.Fields.name,
+            withValue: name
+        )
+        let products = self.createProduct(for: user, in: context)
+        user.name = name
+        user.email = email
+        user.userId = email
+        user.isActive = true
+        user.addToProducts(NSSet(array: products))
+        context.mr_saveToPersistentStoreAndWait()
     }
     
-    func updateUser(with name: String, isActive: Bool) {
-        let context = NSManagedObjectContext.mr_context(withParent: .mr_rootSaving())
-        let user = User.mr_findFirst(byAttribute: User.Fields.name, withValue: name, in: context)
-        context.performAndWait {
-            user?.name = name
-            user?.isActive = isActive
-        }
+    func updateUser(
+        with name: String,
+        isActive: Bool
+    ) {
+        let context = NSManagedObjectContext.mr_default()
+        let user = User.mr_findFirst(
+            byAttribute: User.Fields.name,
+            withValue: name,
+            in: context
+        )
+        user?.name = name
+        user?.isActive = isActive
+        context.mr_saveToPersistentStoreAndWait()
     }
     
-    func addProductTo(user: String, completion: @escaping (() -> Void)) {
-        let context = NSManagedObjectContext.mr_context(withParent: .mr_rootSaving())
-        let user = User.mr_findFirst(byAttribute: User.Fields.name, withValue: user, in: context)
+    private func createProduct(
+        for user: User,
+        in context: NSManagedObjectContext
+    ) -> [Product] {
         var products = [Product]()
         
-        for i in 0..<5 {
-            products.append(Product.mr_findFirstOrCreate(byAttribute: Product.Fields.id, withValue: "Product \(i)", in: context))
+        for i in 0..<10 {
+            let product = Product.mr_findFirstOrCreate(
+                byAttribute: Product.Fields.id,
+                withValue: "Product \(i)",
+                in: context
+            )
+            product.id = "\(i)"
+            product.name = "Product \(i)"
+            product.createdAt = Date()
+            product.updatedAt = nil
+//            product.user = user
+            products.append(
+                product
+            )
         }
-        user?.product = NSSet(object: products)
-        context.performAndWait {
-            completion()
-        }
+        return products
     }
 }
