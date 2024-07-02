@@ -49,7 +49,10 @@ class CoreDataManager {
         isActive: Bool
     ) {
         let context = NSManagedObjectContext.mr_default()
-        let user = User.mr_findFirst(byAttribute: User.Fields.userId, withValue: userId)
+        let user = User.mr_findFirst(
+            byAttribute: User.Fields.userId,
+            withValue: userId
+        )
         user?.name = name
         user?.email = email
         user?.isActive = isActive
@@ -57,8 +60,18 @@ class CoreDataManager {
     }
     
     func userFetchController(delegate: NSFetchedResultsControllerDelegate) -> NSFetchedResultsController<NSFetchRequestResult> {
-        let userRequest = User.mr_requestAllSorted(by: User.Fields.userId, ascending: true, with: nil)
-        let controller = User.mr_fetchController(userRequest, delegate: delegate, useFileCache: false, groupedBy: nil, in: NSManagedObjectContext.mr_default())
+        let userRequest = User.mr_requestAllSorted(
+            by: User.Fields.userId,
+            ascending: true,
+            with: nil
+        )
+        let controller = User.mr_fetchController(
+            userRequest,
+            delegate: delegate,
+            useFileCache: false,
+            groupedBy: nil,
+            in: NSManagedObjectContext.mr_default()
+        )
         controller.fetchRequest.includesSubentities = false
         User.mr_performFetch(controller)
         return controller
