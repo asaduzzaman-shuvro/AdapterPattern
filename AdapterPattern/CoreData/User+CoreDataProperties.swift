@@ -48,6 +48,6 @@ extension User {
         static let userId = "userId"
         static let email = "email"
         static let isActive = "isActive"
-        static let product = "product"
+        static let products = "products"
     }
 }

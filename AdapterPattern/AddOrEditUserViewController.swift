@@ -7,23 +7,33 @@
 
 import UIKit
 
-class AddUserViewController: UIViewController {
+class AddOrEditUserViewController: UIViewController {
 
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     
+    var user: User? 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let users = CoreDataManager.shared.getUsers()
-        print(users)
+        
+        if let user {
+            nameTextField.text = user.name
+            emailTextField.text = user.email
+        }
     }
     
     @IBAction func createUserButtonTapped(_ sender: Any) {
         guard 
-            let user = nameTextField.text?.trim(),
+            let name = nameTextField.text?.trim(),
             let email = emailTextField.text?.trim()
         else { return }
-        CoreDataManager.shared.createUser(name: user, email: email)
+        
+        if let user = self.user {
+            CoreDataManager.shared.updateUser(with: name, email: email, userId: user.userId ?? "", isActive: true)
+        } else {
+            CoreDataManager.shared.createUser(name: name, email: email)
+        }
         navigationController?.popViewController(animated: true)
     }
 }

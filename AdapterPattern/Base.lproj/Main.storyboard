@@ -16,10 +16,25 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="mKs-CD-BOH">
+                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mKs-CD-BOH" secondAttribute="trailing" id="G2l-ul-32y"/>
+                            <constraint firstItem="mKs-CD-BOH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="LdW-jP-c5y"/>
+                            <constraint firstItem="mKs-CD-BOH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="M2t-Mx-irC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="mKs-CD-BOH" secondAttribute="bottom" id="m8S-3Y-owb"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Users" id="mqq-d8-JfG"/>
+                    <connections>
+                        <outlet property="tableView" destination="mKs-CD-BOH" id="cdv-6r-wu9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

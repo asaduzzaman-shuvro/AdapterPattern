@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddUserViewController" customModule="AdapterPattern" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddOrEditUserViewController" customModule="AdapterPattern" customModuleProvider="target">
             <connections>
                 <outlet property="emailTextField" destination="h6w-xw-rod" id="nMv-ZQ-bk1"/>
                 <outlet property="nameTextField" destination="Yye-go-Drj" id="ahO-ul-5ne"/>
