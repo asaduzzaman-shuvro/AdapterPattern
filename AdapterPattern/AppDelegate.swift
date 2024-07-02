@@ -12,11 +12,9 @@ import MagicalRecord
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        MagicalRecord.setupCoreDataStack(withStoreNamed: "AdapterPattern.sqlite")
+        CoreDataManager.shared.setupCoreDataStack()
         return true
     }
 

@@ -19,7 +19,7 @@ extension User {
     @NSManaged public var name: String?
     @NSManaged public var userId: String?
     @NSManaged public var email: String?
-    @NSManaged public var isActive: String?
+    @NSManaged public var isActive: Bool
     @NSManaged public var product: NSSet?
 }
 

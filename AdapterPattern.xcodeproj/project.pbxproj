@@ -23,6 +23,7 @@
 		5C2FF4262C34180C0045E3C9 /* Product+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2FF4222C34180C0045E3C9 /* Product+CoreDataProperties.swift */; };
 		5C2FF4272C34180C0045E3C9 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2FF4232C34180C0045E3C9 /* User+CoreDataClass.swift */; };
 		5C2FF4282C34180C0045E3C9 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2FF4242C34180C0045E3C9 /* User+CoreDataProperties.swift */; };
+		5C2FF42C2C3421890045E3C9 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2FF42B2C3421890045E3C9 /* CoreDataManager.swift */; };
 		D618FF778A88B99D37E18720 /* Pods_AdapterPattern.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 608568B6F1A563AA7696C080 /* Pods_AdapterPattern.framework */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +63,7 @@
 		5C2FF4222C34180C0045E3C9 /* Product+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Product+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		5C2FF4232C34180C0045E3C9 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
 		5C2FF4242C34180C0045E3C9 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		5C2FF42B2C3421890045E3C9 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		608568B6F1A563AA7696C080 /* Pods_AdapterPattern.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AdapterPattern.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7577B2EAD00A56AC98F49093 /* Pods-AdapterPattern-AdapterPatternUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdapterPattern-AdapterPatternUITests.release.xcconfig"; path = "Target Support Files/Pods-AdapterPattern-AdapterPatternUITests/Pods-AdapterPattern-AdapterPatternUITests.release.xcconfig"; sourceTree = "<group>"; };
 		76225727ED7174883C6708D5 /* Pods-AdapterPattern.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdapterPattern.release.xcconfig"; path = "Target Support Files/Pods-AdapterPattern/Pods-AdapterPattern.release.xcconfig"; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 		5C2FF4182C3416FC0045E3C9 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				5C2FF42B2C3421890045E3C9 /* CoreDataManager.swift */,
 				5C2FF4212C34180C0045E3C9 /* Product+CoreDataClass.swift */,
 				5C2FF4222C34180C0045E3C9 /* Product+CoreDataProperties.swift */,
 				5C2FF4232C34180C0045E3C9 /* User+CoreDataClass.swift */,
@@ -435,6 +438,7 @@
 				5C2FF3E82C3415850045E3C9 /* SceneDelegate.swift in Sources */,
 				5C2FF4252C34180C0045E3C9 /* Product+CoreDataClass.swift in Sources */,
 				5C2FF4262C34180C0045E3C9 /* Product+CoreDataProperties.swift in Sources */,
+				5C2FF42C2C3421890045E3C9 /* CoreDataManager.swift in Sources */,
 				5C2FF4272C34180C0045E3C9 /* User+CoreDataClass.swift in Sources */,
 				5C2FF4282C34180C0045E3C9 /* User+CoreDataProperties.swift in Sources */,
 			);
