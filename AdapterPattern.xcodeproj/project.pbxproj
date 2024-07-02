@@ -133,7 +133,7 @@
 				5C2FF3F12C3415870045E3C9 /* Assets.xcassets */,
 				5C2FF3F32C3415870045E3C9 /* LaunchScreen.storyboard */,
 				5C2FF3F62C3415870045E3C9 /* Info.plist */,
-				5C2FF4182C3416FC0045E3C9 /* CoreDataModels */,
+				5C2FF4182C3416FC0045E3C9 /* CoreData */,
 			);
 			path = AdapterPattern;
 			sourceTree = "<group>";
@@ -155,7 +155,7 @@
 			path = AdapterPatternUITests;
 			sourceTree = "<group>";
 		};
-		5C2FF4182C3416FC0045E3C9 /* CoreDataModels */ = {
+		5C2FF4182C3416FC0045E3C9 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
 				5C2FF4212C34180C0045E3C9 /* Product+CoreDataClass.swift */,
@@ -164,7 +164,7 @@
 				5C2FF4242C34180C0045E3C9 /* User+CoreDataProperties.swift */,
 				5C2FF3EE2C3415850045E3C9 /* AdapterPattern.xcdatamodeld */,
 			);
-			path = CoreDataModels;
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		DD3C5298CBD08BF87F213B2B /* Pods */ = {
@@ -177,7 +177,6 @@
 				837B6497A1A63AAC046DFE14 /* Pods-AdapterPatternTests.debug.xcconfig */,
 				8D9D0C2BE727CB7B926C58A7 /* Pods-AdapterPatternTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
