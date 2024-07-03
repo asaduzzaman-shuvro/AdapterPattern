@@ -28,6 +28,10 @@
 		5C2FF4302C342BB40045E3C9 /* AddOrEditUserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C2FF42E2C342BB40045E3C9 /* AddOrEditUserViewController.xib */; };
 		5C2FF4332C342CBF0045E3C9 /* NibInitializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2FF4322C342CBF0045E3C9 /* NibInitializable.swift */; };
 		5C2FF4352C342F680045E3C9 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2FF4342C342F680045E3C9 /* String+Extension.swift */; };
+		5C72DD9C2C348F19008F8B30 /* CoreDataWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C72DD9B2C348F19008F8B30 /* CoreDataWrapper.swift */; };
+		5C72DD9E2C349128008F8B30 /* ConcreteCoreDataWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C72DD9D2C349128008F8B30 /* ConcreteCoreDataWrapper.swift */; };
+		5C72DDA12C349201008F8B30 /* CoreStore in Frameworks */ = {isa = PBXBuildFile; productRef = 5C72DDA02C349201008F8B30 /* CoreStore */; };
+		5C72DDA32C3575D0008F8B30 /* CoreDataContexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C72DDA22C3575D0008F8B30 /* CoreDataContexts.swift */; };
 		D618FF778A88B99D37E18720 /* Pods_AdapterPattern.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 608568B6F1A563AA7696C080 /* Pods_AdapterPattern.framework */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +76,9 @@
 		5C2FF42E2C342BB40045E3C9 /* AddOrEditUserViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddOrEditUserViewController.xib; sourceTree = "<group>"; };
 		5C2FF4322C342CBF0045E3C9 /* NibInitializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibInitializable.swift; sourceTree = "<group>"; };
 		5C2FF4342C342F680045E3C9 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		5C72DD9B2C348F19008F8B30 /* CoreDataWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataWrapper.swift; sourceTree = "<group>"; };
+		5C72DD9D2C349128008F8B30 /* ConcreteCoreDataWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcreteCoreDataWrapper.swift; sourceTree = "<group>"; };
+		5C72DDA22C3575D0008F8B30 /* CoreDataContexts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataContexts.swift; sourceTree = "<group>"; };
 		608568B6F1A563AA7696C080 /* Pods_AdapterPattern.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AdapterPattern.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7577B2EAD00A56AC98F49093 /* Pods-AdapterPattern-AdapterPatternUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdapterPattern-AdapterPatternUITests.release.xcconfig"; path = "Target Support Files/Pods-AdapterPattern-AdapterPatternUITests/Pods-AdapterPattern-AdapterPatternUITests.release.xcconfig"; sourceTree = "<group>"; };
 		76225727ED7174883C6708D5 /* Pods-AdapterPattern.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AdapterPattern.release.xcconfig"; path = "Target Support Files/Pods-AdapterPattern/Pods-AdapterPattern.release.xcconfig"; sourceTree = "<group>"; };
@@ -89,6 +96,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D618FF778A88B99D37E18720 /* Pods_AdapterPattern.framework in Frameworks */,
+				5C72DDA12C349201008F8B30 /* CoreStore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,6 +153,7 @@
 				5C2FF3F12C3415870045E3C9 /* Assets.xcassets */,
 				5C2FF3F32C3415870045E3C9 /* LaunchScreen.storyboard */,
 				5C2FF3F62C3415870045E3C9 /* Info.plist */,
+				5C72DD9A2C348EF2008F8B30 /* Adapter */,
 				5C2FF4312C342CA80045E3C9 /* NibInitialize */,
 				5C2FF4182C3416FC0045E3C9 /* CoreData */,
 				5C2FF4342C342F680045E3C9 /* String+Extension.swift */,
@@ -190,6 +199,16 @@
 			path = NibInitialize;
 			sourceTree = "<group>";
 		};
+		5C72DD9A2C348EF2008F8B30 /* Adapter */ = {
+			isa = PBXGroup;
+			children = (
+				5C72DD9B2C348F19008F8B30 /* CoreDataWrapper.swift */,
+				5C72DD9D2C349128008F8B30 /* ConcreteCoreDataWrapper.swift */,
+				5C72DDA22C3575D0008F8B30 /* CoreDataContexts.swift */,
+			);
+			path = Adapter;
+			sourceTree = "<group>";
+		};
 		DD3C5298CBD08BF87F213B2B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -231,6 +250,9 @@
 			dependencies = (
 			);
 			name = AdapterPattern;
+			packageProductDependencies = (
+				5C72DDA02C349201008F8B30 /* CoreStore */,
+			);
 			productName = AdapterPattern;
 			productReference = 5C2FF3E22C3415850045E3C9 /* AdapterPattern.app */;
 			productType = "com.apple.product-type.application";
@@ -306,6 +328,9 @@
 				Base,
 			);
 			mainGroup = 5C2FF3D92C3415850045E3C9;
+			packageReferences = (
+				5C72DD9F2C349201008F8B30 /* XCRemoteSwiftPackageReference "CoreStore" */,
+			);
 			productRefGroup = 5C2FF3E32C3415850045E3C9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -458,8 +483,11 @@
 				5C2FF3F02C3415850045E3C9 /* AdapterPattern.xcdatamodeld in Sources */,
 				5C2FF3E82C3415850045E3C9 /* SceneDelegate.swift in Sources */,
 				5C2FF4352C342F680045E3C9 /* String+Extension.swift in Sources */,
+				5C72DD9E2C349128008F8B30 /* ConcreteCoreDataWrapper.swift in Sources */,
 				5C2FF4252C34180C0045E3C9 /* Product+CoreDataClass.swift in Sources */,
 				5C2FF42F2C342BB40045E3C9 /* AddOrEditUserViewController.swift in Sources */,
+				5C72DD9C2C348F19008F8B30 /* CoreDataWrapper.swift in Sources */,
+				5C72DDA32C3575D0008F8B30 /* CoreDataContexts.swift in Sources */,
 				5C2FF4332C342CBF0045E3C9 /* NibInitializable.swift in Sources */,
 				5C2FF4262C34180C0045E3C9 /* Product+CoreDataProperties.swift in Sources */,
 				5C2FF42C2C3421890045E3C9 /* CoreDataManager.swift in Sources */,
@@ -815,6 +843,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5C72DD9F2C349201008F8B30 /* XCRemoteSwiftPackageReference "CoreStore" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JohnEstropia/CoreStore.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5C72DDA02C349201008F8B30 /* CoreStore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5C72DD9F2C349201008F8B30 /* XCRemoteSwiftPackageReference "CoreStore" */;
+			productName = CoreStore;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		5C2FF3EE2C3415850045E3C9 /* AdapterPattern.xcdatamodeld */ = {

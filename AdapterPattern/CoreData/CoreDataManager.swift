@@ -8,7 +8,7 @@
 import Foundation
 import MagicalRecord
 
-class CoreDataManager {
+final class CoreDataManager {
     
     static let shared = CoreDataManager()
     
@@ -40,6 +40,15 @@ class CoreDataManager {
         user.isActive = true
         user.products = NSSet(array: products)
         context.mr_saveToPersistentStoreAndWait()
+        
+//        let userId = String.generateRandomAlphanumeric()
+//        let cordataWrapper: CoreDataWrapper = ConcreteCoreDataWrapper()
+//        cordataWrapper.asynchronousContext { context in
+//            let user: User = context.findFirstOrCreate(by: User.Fields.userId, withValue: userId)
+//            user.userId = userId
+//            user.name = "Asaduzzaman Shuvro"
+//            user.email = "asaduzzaman@gmail.com"
+//        }
     }
     
     func updateUser(
