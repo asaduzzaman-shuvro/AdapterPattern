@@ -11,16 +11,16 @@ import MagicalRecord
 final class CoreDataManager {
     
     static let shared = CoreDataManager()
+    let coreDataWrapper: CoreDataWrapper = ConcreteCoreDataWrapper()
     
     private init() {}
     
     func setupCoreDataStack() {
-        MagicalRecord.setupCoreDataStack(withAutoMigratingSqliteStoreNamed: "AdapterPattern.sqlite")
+//        MagicalRecord.setupCoreDataStack(withAutoMigratingSqliteStoreNamed: "AdapterPattern.sqlite")
     }
     
     func getUsers() -> [User] {
-        let context = NSManagedObjectContext.mr_default()
-        let users = User.mr_findAll(in: context) as! [User]
+        let users: [User] = coreDataWrapper.findAll()
         return users
     }
     
@@ -28,18 +28,13 @@ final class CoreDataManager {
         name: String,
         email: String
     ) {
-        let context = NSManagedObjectContext.mr_default()
-        let user = User.mr_findFirstOrCreate(
-            byAttribute: User.Fields.userId,
-            withValue: String.generateRandomAlphanumeric()
-        )
-        let products = self.createProduct(for: user, in: context)
-      
-        user.name = name
-        user.email = email
-        user.isActive = true
-        user.products = NSSet(array: products)
-        context.mr_saveToPersistentStoreAndWait()
+        coreDataWrapper.asynchronousContext { [weak self] context in
+            guard let self else { return }
+            let user: User = context.createEntity()
+            let products: [Product] = createProduct(for: user, in: context)
+            user.products = NSSet(object: products)
+        }
+
     }
     
     func updateUser(
@@ -48,15 +43,15 @@ final class CoreDataManager {
         userId: String,
         isActive: Bool
     ) {
-        let context = NSManagedObjectContext.mr_default()
-        let user = User.mr_findFirst(
-            byAttribute: User.Fields.userId,
-            withValue: userId
-        )
-        user?.name = name
-        user?.email = email
-        user?.isActive = isActive
-        context.mr_saveToPersistentStoreAndWait()
+        coreDataWrapper.asynchronousContext { context in
+            let user: User = context.findFirstOrCreate(
+                by:User.Fields.userId,
+                withValue: userId
+            )
+            user.name = name
+            user.email = email
+            user.isActive = isActive
+        }
     }
     
     func userFetchController(delegate: NSFetchedResultsControllerDelegate) -> NSFetchedResultsController<NSFetchRequestResult> {
@@ -79,18 +74,14 @@ final class CoreDataManager {
     
     private func createProduct(
         for user: User,
-        in context: NSManagedObjectContext
+        in context: CoreDataAsynchronousContext
     ) -> [Product] {
         var products = [Product]()
         
         let randomNumber = Int.random(in: 0..<10)
 
         for i in 0..<randomNumber {
-            let product = Product.mr_findFirstOrCreate(
-                byAttribute: Product.Fields.id,
-                withValue: "Product \(i)",
-                in: context
-            )
+            let product: Product = context.createEntity()
             product.id = "\(i)"
             product.name = "Product \(i)"
             product.createdAt = Date()
@@ -100,6 +91,6 @@ final class CoreDataManager {
                 product
             )
         }
-        return products
+        return []
     }
 }

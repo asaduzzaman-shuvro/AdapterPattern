@@ -55,13 +55,13 @@ class ConcreteCoreDataWrapper: CoreDataWrapper {
         }
     }
     
-    func asynchronousContext(completion: @escaping AsynchronousContextCompletion) {
-        dataStack.perform { transaction in
-            completion(transaction)
-        } completion: { result in
-            print(result)
-        }
-    }
+//    func asynchronousContext(completion: @escaping AsynchronousContextCompletion) {
+//        dataStack.perform { transaction in
+//            completion(transaction)
+//        } completion: { result in
+//            print(result)
+//        }
+//    }
 }
 
 extension ConcreteCoreDataWrapper {
